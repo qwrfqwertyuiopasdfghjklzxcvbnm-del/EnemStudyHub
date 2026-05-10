@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+ integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+ crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <title>
+ Login
+ </title>
+ </head>
+ <body>
+ <style>
+ body {
+ background-image: url('https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/bg_vpn.png');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ background-size: cover;
+ -o-background-size: cover;
+ width: 100%;
+ height: 100vh;
+ margin: 0;
+ color: #ffffff;
+ }
+ .form {
+ margin-top: 100px;
+ display: flex;
+ flex-direction: column;
+ color: #000000;
+ gap: 10px;
+ background-color: transparent;
+ width: 450px;
+ border-radius: 20px;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ ::placeholder {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ .form button {
+ align-self: flex-end;
+ }
+ .flex-column>label {
+ color: #151717;
+ font-weight: 600;
+ }
+ .inputForm {
+ border: 1.5px solid #ecedec;
+ border-radius: 10px;
+ height: 50px;
+ display: flex;
+ align-items: center;
+ padding-left: 10px;
+ transition: border-color 0.2s ease-in-out;
+ color: black;
+ }
+ .inputForm:hover {
+ border-color: #ffffff;
+ }
+ .input {
+ margin-left: 10px;
+ border-radius: 10px;
+ border: none;
+ width: 85%;
+ height: 100%;
+ background-color: transparent;
+ color: white;
+ }
+ .input:focus {
+ outline: none;
+ }
+ .inputForm:focus-within {
+ border: 1.5px solid #2d79f3;
+ }
+ .input::placeholder {
+ color: white;
+ opacity: 0.7;
+ }
+ .flex-row {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 10px;
+ justify-content: space-between;
+ }
+ .flex-row>div>label {
+ font-size: 14px;
+ color: black;
+ font-weight: 400;
+ }
+ .button-submit {
+ appearance: none;
+ background-color: transparent;
+ border: 0.125em solid white;
+ border-radius: 10px;
+ box-sizing: border-box;
+ color: white;
+ cursor: pointer;
+ display: inline-block;
+ font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ font-size: large;
+ font-weight: 600;
+ line-height: normal;
+ margin: 20px 0 10px 0;
+ min-height: 2em;
+ min-width: 0;
+ outline: none;
+ padding: 0;
+ text-align: center;
+ text-decoration: none;
+ transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+ will-change: transform;
+ width: 394.5px;
+ height: 40px;
+ }
+ .button-submit:hover {
+ background-color: transparent;
+ color: white;
+ }
+ .p {
+ text-align: center;
+ color: black;
+ font-size: 14px;
+ }
+ .btn {
+ margin-top: 10px;
+ width: 100%;
+ height: 50px;
+ border-radius: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-weight: 500;
+ gap: 10px;
+ border: 1px solid #ededef;
+ background-color: white;
+ cursor: pointer;
+ transition: 0.2s ease-in-out;
+ }
+ .btn:hover {
+ border: 1px solid #2d79f3;
+ }
+ button {
+ appearance: none;
+ background-color: transparent;
+ border: 0.125em solid #00adc2fe;
+ border-radius: 0.9375em;
+ box-sizing: border-box;
+ color: #000000;
+ cursor: pointer;
+ display: inline-block;
+ font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ font-size: 16px;
+ font-weight: 600;
+ line-height: normal;
+ margin: 0;
+ min-height: 3.75em;
+ min-width: 0;
+ outline: none;
+ padding: 10px;
+ text-align: center;
+ text-decoration: none;
+ transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+ will-change: transform;
+ }
+ button:disabled {
+ pointer-events: none;
+ }
+ button:hover {
+ color: #fff;
+ background-color: #1A1A1A;
+ box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+ transform: translateY(-2px);
+ }
+ button:active {
+ box-shadow: none;
+ transform: translateY(0);
+ }
+ .rememberPassword {
+ color: #ffffff !important;
+ }
+ .footerForm {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ padding-bottom: 10px;
+ }
+ .headerForm {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ color: black;
+ width: auto;
+ }
+ .main {
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ }
+ .security-tips {
+ flex: 1;
+ max-width: 600px;
+ margin-top: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ color: #ffffff;
+ }
+ .card {
+ width: 140%;
+ height: auto;
+ padding: 10px;
+ border-radius: 30px;
+ background: transparent;
+ box-shadow: 15px 15px 30px #09243a,
+ -15px -15px 30px #09243a;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 20px;
+ }
+ .footerCard {
+ width: 140%;
+ height: auto;
+ padding: 10px;
+ border-radius: 30px;
+ background: transparent;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 20px;
+ }
+ .card-item {
+ flex: 1 0 calc(25% - 20px);
+ text-align: center;
+ font-size: medium;
+ text-decoration: none;
+ color: inherit;
+ }
+ .card-item img {
+ width: 35%;
+ border-radius: 15px;
+ }
+ @media only screen and (max-width: 1400px) {
+ .card {
+ width: 100%;
+ }
+ }
+ @media only screen and (max-width: 750px) {
+ .card {
+ width: 100%;
+ padding: 30px;
+ flex: 1 0 calc(50% - 20px);
+ text-align: center;
+ }
+ .footer {
+ flex: 1 0 calc(50% - 20px);
+ text-align: center;
+ padding: 30px;
+ }
+ .form {
+ margin-top: 100px;
+ padding: 20px;
+ width: 400px;
+ }
+ .main {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ align-items: center;
+ font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ }
+ .card-item {
+ flex: 1 0 calc(50% - 20px);
+ }
+ .wide-inputs input {
+ justify-content: center;
+ align-items: center;
+ padding: 10px;
+ margin-left: 1px;
+ margin-right: 1px;
+ border-radius: 10px;
+ border-color: white;
+ margin-top: 10px;
+ width: 43.4%;
+ background-color: transparent;
+ color: #ffffff;
+ }
+ }
+ .sectionForm {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ .wide-inputs input {
+ justify-content: center;
+ align-items: center;
+ padding: 10px;
+ margin-left: 1px;
+ margin-right: 1px;
+ border-radius: 10px;
+ border-color: white;
+ margin-top: 10px;
+ width: 43.4%;
+ background-color: transparent;
+ color: #ffffff;
+ }
+ .wide-inputs input::placeholder {
+ color: #ffffff;
+ }
+ .text-center {
+ color: white;
+ }
+ .vpn-image {
+ width: 50%;
+ }
+ .message-content {
+ color: white;
+ border: 0.125em solid red;
+ background-color: red;
+ }
+ .footer {
+ width: 100%;
+ border-top: 0.1em solid #fff;
+ margin-top: 90px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ align-items: center;
+ align-items: center;
+ color: #fff;
+ font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ }
+ .rights-reserved {
+ display: flex;
+ justify-content: center;
+ text-align: center;
+ color: #fff;
+ font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ }
+ .modalToggle {
+ display: none;
+ }
+ .btnAbrirPDF {
+ background-color: transparent;
+ color: #fff;
+ padding: 10px;
+ cursor: pointer;
+ display: inline-block;
+ }
+ .modalPDF {
+ display: none;
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background-color: #fff;
+ border: 1px solid #ccc;
+ padding: 20px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ z-index: 999;
+ }
+ .modalPDF embed {
+ width: 40vw;
+ height: 80vh;
+ }
+ /* Botão de fechar */
+ .modalToggle:checked+.btnAbrirPDF+.modalPDF {
+ display: block;
+ }
+ .modalToggle:checked+.btnAbrirPDF+.modalPDF label {
+ position: absolute;
+ top: -12px;
+ right: 5px;
+ font-size: 30px;
+ cursor: pointer;
+ color: black;
+ /* Cor do texto */
+ transition: color 0.1s;
+ /* Transição suave da cor */
+ }
+ .modalToggle:checked+.btnAbrirPDF+.modalPDF label:hover {
+ color: red;
+ text-decoration: none;
+ }
+ .cartilhas-list {
+ list-style: none;
+ }
+ .cartilhas-list li {
+ margin-bottom: 10px;
+ list-style: none;
+ }
+ .cartilhas-list ul {
+ padding: 0px;
+ display: inline-grid;
+ }
+ .cartilhas-list li a {
+ text-decoration: none;
+ cursor: pointer;
+ transition: text-decoration 0.3s ease-in-out;
+ color: white;
+ }
+ .cartilhas-list li label:hover {
+ text-decoration: underline;
+ }
+ .cartilhas-container {
+ display: flex;
+ justify-content: space-between;
+ gap: 20px;
+ }
+ .cartilhas-list {
+ width: 48%;
+ /* Ajuste conforme necessário para espaço entre as colunas */
+ }
+ .footer-link {
+ display: inline-block;
+ padding: 10px 20px;
+ text-decoration: none;
+ color: white;
+ border-radius: 20px 20px 20px 20px;
+ box-shadow: 10px 10px 15px #09243a,
+ -15px -15px 30px #09243a
+ }
+ .footer-link:hover {
+ background-color: #2f72b9;
+ /* Altere a cor de fundo ao passar o mouse */
+ }
+ </style>
+ <section class="main">
+ <form class="form" action="/remote/logincheck" method="post" name="f" autocomplete="off">
+ <div class="headerForm">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_vpn.png"
+ alt="Logo representando VPN" class="vpn-image">
+ <h1 class="text-center">
+ ACESSO REMOTO
+ </h1>
+ </div>
+ <div class="sectionForm">
+ <div class="sub-content">
+ <div class="wide-inputs">
+ <!--remoteauthtimeout=10-->
+<input type="text" name="username" id="username" placeholder="Name"><input type="password" name="credential" id="credential" placeholder="Password" maxlength="128"><div class="info-message" id="token_msg" style="display: none;"><div class="message-content" id="token_label"></div></div><input type="password" style="display: none;" maxlength="128" name="credential2" id="credential2"><input type="password" style="display: none;" maxlength="128" name="credential3" id="credential3"><div class="button-actions wide"><button class="primary" type="button" name="ftm_push_button" id="ftm_push_button" onclick="try_ftm_push()    " style="display: none" disabled>Use FTM Push</button></div><input type="password" style="display: none;" placeholder="Token" name="code" id="code"><div id="driftmsg" style="display: none;" class="warning-message">Token clock drift detected. Please input the next code and continue.</div><input type="password" style="display: none;" name="code2" id="code2" placeholder="Next Token Code">
+ </div>
+ <div class="button-actions wide">
+ <button class="button-submit" onClick="try_login()" type="button" name="login_button" id="login_button">
+ Entrar
+ </button>
+ <div class="footerForm">
+ </div>
+ </div>
+ </div>
+ </div>
+ </form>
+ <section class="security-tips">
+ <h1>
+ DICAS DE SEGURANÇA
+ </h1>
+ <div class="card">
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_nao_se_conecte.png"
+ alt="Não se conecte em outra rede wi-fi que não seja a sua">
+ <h1>
+ Não se conecte em outra rede wi-fi que não seja a sua
+ </h1>
+ </div>
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_cadeado_seguranca.png"
+ alt="Evite deixar seu computador aberto">
+ <h1>
+ Evite deixar seu computador aberto
+ </h1>
+ </div>
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_anti_virus.png"
+ alt="Antivírus sempre atualizados">
+ <h1>
+ Antivírus sempre atualizados
+ </h1>
+ </div>
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_compartilhamento.png"
+ alt="Compartilhamento de arquivos, consulte o manual de uso">
+ <h1>
+ Compartilhamento de arquivos, consulte o manual de uso
+ </h1>
+ </div>
+ <div class="card-item">
+ <img
+ src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_ligacoes_conferencias.png"
+ alt="Ligações e conferências em ambientes controlados">
+ <h1>
+ Ligações e conferências em ambientes controlados
+ </h1>
+ </div>
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_cuidado_extras.png"
+ alt="Cuidado extra commensagens maliciosas">
+ <h1>
+ Cuidado extra com mensagens maliciosas
+ </h1>
+ </div>
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_dispositivos_moveis.png"
+ alt="Dispositivos móveis, amplie os cuidados">
+ <h1>
+ Dispositivos móveis, amplie os cuidados
+ </h1>
+ </div>
+ <div class="card-item">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_evite_baixar.png"
+ alt="Evite baixar arquivos em pen-drives e hd's externos">
+ <h1>
+ Evite baixar arquivos em pen-drives e hd's externos
+ </h1>
+ </div>
+ </div>
+ </div>
+ </section>
+ </section>
+</body>
+<footer class="footer centered-footer">
+ <div>
+ <a href="http://tecnologia.salvador.ba.gov.br/" class="">
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
+ alt="Logo da COGEL">
+ </a>
+ <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+ alt="Logo da SEMIT e Prefeitura de Salvador">
+ <div>
+ <h2>
+ Redes Sociais
+ </h2>
+ <a class="footer-link"
+ href="https://www.linkedin.com/company/companhia-de-governanca-eletronica-do-salvador/mycompany/" id="linkedin">
+ <i class="fa-brands fa-linkedin">
+ </i>
+ </a>
+ <a class="footer-link" href="https://www.instagram.com/semitcogel/" id="linkedin">
+ <i class="fa-brands fa-instagram">
+ </i>
+ </a>
+ </div>
+ </div>
+ <div>
+ <h2>
+ Cartilhas de Segurança 
+ </h2>
+ <div class="cartilhas-container">
+ <div class="cartilhas-list">
+ <ul>
+ <li>
+ <label class="cartilha-item" title="Visualizar Política">
+ <a
+ href=" http://www.dom.salvador.ba.gov.br/images/stories/pdf/2024/janeiro/dom-8704-17-01-2024.pdf#page=27&zoom=100,0,0">
+ Política de Segurança da Informação
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/da70061c3916bc8dd82327e56fdb8b6e108c9e73/cartilhas/GESIC - CARTILHA ENGENHARIA SOCIAL E CRIMES CIBERNÉTICOS.pdf">
+ Engenharia
+ Social e Crimes Cibernéticos
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/b241223d23dab84d1f4a54be8f2b04efc4150609/cartilhas/GESIC%20-%20CARTILHA%20INTRODUCAO%20SEGURANCA%20DIGITAL.pdf">
+ Introdução
+ Segurança Digital
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/b241223d23dab84d1f4a54be8f2b04efc4150609/cartilhas/GESIC%20-%20CARTILHA%20NAVEGACAO%20SEGURA%20INTERNET.pdf">
+ Navegação
+ Segura na internet
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/0a256af48f08a2d0191c2f908acbb009732d273c/cartilhas/GESIC-CART-EMAIL-CORPORATIVO.pdf">
+ E-mail Corporativo
+ </a>
+ </label>
+ </li>
+ </ul>
+ </div>
+ <div class="cartilhas-list">
+ <ul>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/da70061c3916bc8dd82327e56fdb8b6e108c9e73/cartilhas/GESIC%20-%20CARTILHA%20COMPRAS%20ONLINE%20SEGURAS.pdf">
+ Compras
+ Online Seguras
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/b241223d23dab84d1f4a54be8f2b04efc4150609/cartilhas/GESIC%20-%20CARTILHA%20PROTECAO%20CONTRA%20MALWARE.pdf">
+ Proteção
+ Contra Malware
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/b241223d23dab84d1f4a54be8f2b04efc4150609/cartilhas/GESIC%20-%20CARTILHA%20PROTECAO%20SENHAS.pdf">
+ Proteção
+ de Senhas
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/b241223d23dab84d1f4a54be8f2b04efc4150609/cartilhas/GESIC%20-%20CARTILHA%20PROTEGENDO%20DISPOSITIVOS%20MOVEIS.pdf">
+ Protegendo
+ Dispositivos Moveis
+ </a>
+ </label>
+ </li>
+ <li>
+ <label class="cartilha-item" title="Baixar cartilha">
+ <a
+ href="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/b241223d23dab84d1f4a54be8f2b04efc4150609/cartilhas/GESIC%20-%20CARTILHA%20USO%20SEGURO%20REDES%20SOCIAIS.pdf">
+ Uso
+ Seguro Redes Sociais
+ </a>
+ 
+ </label>
+ </li>
+ </div>
+ </ul>
+ </div>
+ </div>
+</div>
+</footer>
+<div class="rights-reserved">
+ <p>
+ &copy; 2024 Copyright. Companhia de Governança Eletrônica de Salvador (COGEL).
+ </p>
+</div>
+<input type=hidden name="ftm_push_enabled" id="ftm_push_enabled" value="1"><input type=hidden name=just_logged_in value=1><input type=hidden name=magic id=magic_id value=""><input type=hidden name=reqid id=reqid_id value="0"><input type=hidden name=grpid id=grpid_id value=""><input type=hidden name=realm id=realm_id value=""><input type=hidden name=redir value="/sslvpn/portal/index.html"><input type=hidden name=saml_login id=saml_login_id value="0"><script type="text/javascript" src="/js/legacy_theme_setup.js"></script><script type="text/javascript" src="/sslvpn/js/login.js "></script><script type="text/javascript" src="/remote/fgt_lang?lang=pg"></script><script>document.onkeydown = key_pressdown;function load_login_strings() {var tmp = document.getElementById("err_val");var name = document.getElementById("username");var pass = document.getElementById("credential");if (tmp) {tmp.innerHTML = fgt_lang["error"] + ": " + fgt_lang[tmp.getAttribute('title')];}name.placeholder = fgt_lang["Username"];pass.placeholder = fgt_lang["sslvpn_portal::Password"];}window.onload = load_login_strings;</script>
+</html>
